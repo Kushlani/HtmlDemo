@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Third Page</title>
+    <script>
+    function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                        if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                        /*remove the attribute, and call this function once more:*/
+                        elmnt.removeAttribute("w3-include-html");
+                        includeHTML();
+                    }
+                }
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+            }
+        }
+    };
+    </script>
+</head>
+
+<body>
+    <table border="0" width="100%" height="100%">
+        <tr>
+            <td height="25%" colspan="2" align="center">
+                <iframe width="100%" heigh="25%" src="common/header.html"> </iframe>
+            </td>
+        </tr>
+        <tr heigh="50%">
+            <td width="25%" heigh="50%">
+                <div w3-include-html="common/links.html"></div>
+            </td>
+            <td width="75%" heigh="50%">
+                <iframe width="100%" heigh="100%" src="hotels/hotel3.html"> </iframe>
+            </td>
+        </tr>
+        <tr>
+            <td height="25%" colspan="2" align="center">
+                <iframe width="100%" heigh="25%" src="common/footer.html"> </iframe>
+            </td>
+        </tr>
+    </table>
+    <script>
+        includeHTML();
+    </script>
+</body>
+
+</html>
