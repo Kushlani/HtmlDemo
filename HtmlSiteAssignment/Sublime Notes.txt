@@ -1,0 +1,37 @@
+1. Download and install sublime 
+2. Sublime = IDE , Integrated Developement Environment ( professional development)
+	Notepad = Text editor (basic text enditing)
+3. How to install packages
+	Preferences > Package Control > Type\select install package
+	then type the name of the package you want to intstall
+
+
+4. Install tidy
+
+1. Download Zip (http://binaries.html-tidy.org/) x64
+https://github.com/htacg/tidy-html5/releases/download/5.6.0/tidy-5.6.0-vc14-64b.zip
+
+2. Extract into a location (C:\Development\Software)
+3. Go inside the unzipped folder bin file and copy the path 
+	(C:\Developement\Software\tidy-5.6.0-vc14-64b\bin)
+4. Then add the path to the PATH varibale.
+This Pc > Properties > Advanced System Settings > Envrironment Variables
+System Variables select Path variable, edit add the copied path followed by  ;
+
+
+5. Install htmljscss pretify package
+	install NodeJs
+
+6. Install package SublimeServer
+Tools > Sublime Server > Start Sublime Server
+http://localhost:8080/
+
+localhost:port 
+Localhost = Local Computer , Host = provider, Local provider 
+
+
+
+
+Lean hotkeys
+
+https://www.shortcutfoo.com/app/dojos/sublime-text-3-win/cheatsheet
